@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { EnvantoHandymanVerify } = require('../common');
+const { EnvantoHandymanVerify } = require('./common');
 
 test("More Hire Us", async ({ page }) => {
     await page.goto("https://handyman.iqonic.design/")
