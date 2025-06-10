@@ -34,7 +34,7 @@ test("AdminApp settings panel", async ({ page }) => {
     await learnbtnLinkLocator.click();
     await page.waitForURL("https://handyman.iqonic.design/features/laravel-admin-panel/")
     const newPageUrl = page.url();
-    expect(newPageUrl).toBe("https://handyman.iqonic.design/features/laravel-admin-panel/");
+    expect(newPageUrl).toBe("https://handyman.iqonic.design/features/laravel-admin-panel/123");
     const iqonicDesignSpanLocator = page.locator("//p[contains(text(),'Laravel Admin panel for Flutter home service app i')]");
     const verifytext = await iqonicDesignSpanLocator.textContent();
     expect(verifytext).toContain('Laravel Admin panel for Flutter home service app is the heart of the solution. It gives full access and control of the platform to admin.');
