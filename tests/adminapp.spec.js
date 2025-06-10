@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { TrustpilotVerify, AdminAppPlaystore, EnvantoAdminAppVerify, AdminAppAppStore } = require('./common');
+const { TrustpilotVerify, AdminAppPlaystore, EnvantoAdminAppVerify, AdminAppAppStore } = require('../common');
 
 test("AdminApp Admin App Playstore", async ({ page }) => {
     await page.goto("https://handyman.iqonic.design/")
