@@ -67,28 +67,28 @@ test("Home Admin Panel Verify 2", async ({ page }) => {
 
 test("Home User App Playstore", async ({ page }) => {
     await page.goto("https://handyman.iqonic.design/")
-    const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[15]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]");
+    const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[16]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await UserAppPlaystore(page, adminpanelLocator);
 })
 
 test("Home User App Appstore", async ({ page }) => {
     await page.goto("https://handyman.iqonic.design/")
-    const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[15]/div[1]/div[4]/div[1]/div[2]/div[1]/a[1]/img[1]");
+    const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[16]/div[1]/div[4]/div[1]/div[2]/div[1]/a[1]");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await UserAppAppStore(page, adminpanelLocator);
 })
 
 test("Home Handyman link verify 2", async ({ page }) => {
     await page.goto("https://handyman.iqonic.design/")
-    const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]");
+    const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[17]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/ul[1]/li[1]/a[1]");
     await envantohandymanLinkLocator.scrollIntoViewIfNeeded();
     await EnvantoHandymanVerify(page, envantohandymanLinkLocator);
 })
 
 test("Home One Time charge", async ({ page }) => {
     await page.goto("https://handyman.iqonic.design/")
-    const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]");
+    const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[17]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[1]/a[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -102,16 +102,9 @@ test("Home One Time charge", async ({ page }) => {
     expect(verifytext).toContain('Handyman Service Flutter App with Laravel Backend');
 })
 
-test("Home Handyman link verify 3", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
-    const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
-    await envantohandymanLinkLocator.scrollIntoViewIfNeeded();
-    await EnvantoHandymanVerify(page, envantohandymanLinkLocator);
-})
-
 test("Home Book Demo Call", async ({ page }) => {
     await page.goto("https://handyman.iqonic.design/")
-    const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[22]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]");
+    const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[17]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
