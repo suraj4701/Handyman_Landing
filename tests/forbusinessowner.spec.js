@@ -1,8 +1,9 @@
 const { test, expect } = require('@playwright/test');
 const { TrustpilotVerify } = require('./common');
+const home_url = process.env.HOME_URL;
 
 test("For Business Owner Trustpilot Verify", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4970']").hover()
     await page.locator("//li[@id='menu-item-4980']//a[@class='ct-menu-link'][normalize-space()='For Business Owners']").click()
     const trustpilotLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]");
@@ -10,7 +11,7 @@ test("For Business Owner Trustpilot Verify", async ({ page }) => {
 })
 
 test("For Business Owner Admin Panel", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4970']").hover()
     await page.locator("//li[@id='menu-item-4980']//a[@class='ct-menu-link'][normalize-space()='For Business Owners']").click()
     const ondemandLocator = page.locator("//a[@target='_blank'][normalize-space()='Admin Panel']");
@@ -28,7 +29,7 @@ test("For Business Owner Admin Panel", async ({ page }) => {
 })
 
 test("For Business Owner User Website", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4970']").hover()
     await page.locator("//li[@id='menu-item-4980']//a[@class='ct-menu-link'][normalize-space()='For Business Owners']").click()
     const ondemandLocator = page.locator("//a[@target='_blank'][normalize-space()='User Website']");

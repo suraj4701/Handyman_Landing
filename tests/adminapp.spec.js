@@ -1,8 +1,9 @@
 const { test, expect } = require('@playwright/test');
 const { TrustpilotVerify, AdminAppPlaystore, EnvantoAdminAppVerify, AdminAppAppStore } = require('./common');
+const home_url = process.env.HOME_URL;
 
 test("AdminApp Admin App Playstore", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//li[@id='menu-item-4974']").click()
     const adminappLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]");
@@ -10,7 +11,7 @@ test("AdminApp Admin App Playstore", async ({ page }) => {
 })
 
 test("AdminApp Admin App Envanto link verify", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//li[@id='menu-item-4974']").click()
     const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]");
@@ -18,7 +19,7 @@ test("AdminApp Admin App Envanto link verify", async ({ page }) => {
 })
 
 test("AdminApp Trustpilot Verify", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//li[@id='menu-item-4974']").click()
     const trustpilotLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]");
@@ -26,7 +27,7 @@ test("AdminApp Trustpilot Verify", async ({ page }) => {
 })
 
 test("AdminApp settings panel", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//li[@id='menu-item-4974']").click()
     const learnbtnLinkLocator = page.locator("//a[normalize-space()='settings panel']");
@@ -41,7 +42,7 @@ test("AdminApp settings panel", async ({ page }) => {
 });
 
 test("AdminApp Admin App Playstore 2", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//li[@id='menu-item-4974']").click()
     const adminappLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]");
@@ -50,7 +51,7 @@ test("AdminApp Admin App Playstore 2", async ({ page }) => {
 })
 
 test("AdminApp Admin App Appstore", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//li[@id='menu-item-4974']").click()
     const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]");

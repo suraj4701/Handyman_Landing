@@ -1,8 +1,9 @@
 const { test, expect } = require('@playwright/test');
 const { EnvantoHandymanVerify } = require('./common');
+const home_url = process.env.HOME_URL;
 
 test("More Hire Us", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const hireus = page.locator("//li[@id='menu-item-7147']");
 
     const [newPage] = await Promise.all([
@@ -17,7 +18,7 @@ test("More Hire Us", async ({ page }) => {
 })
 
 test("More Book Demo Call", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const bookdemocall = page.locator("//li[@id='menu-item-8211']");
 
     const [newPage] = await Promise.all([
@@ -32,13 +33,13 @@ test("More Book Demo Call", async ({ page }) => {
 })
 
 test("More Handyman link verify", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const envantohandymanLinkLocator = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]");
     await EnvantoHandymanVerify(page, envantohandymanLinkLocator);
 })
 
 test("More Explore Handyman", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const bookdemocall = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]");
 
     const [newPage] = await Promise.all([

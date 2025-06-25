@@ -1,7 +1,8 @@
 const { test, expect } = require('@playwright/test');
+const home_url = process.env.HOME_URL;
 
 test("Resources Documentation", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4972']").hover()
     const documentation = await page.locator("//li[@id='menu-item-4983']")
 
@@ -17,7 +18,7 @@ test("Resources Documentation", async ({ page }) => {
 })
 
 test("Resources FAQ", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4972']").hover()
     const faq = await page.locator("//li[@id='menu-item-4982']")
     await faq.click();
@@ -30,7 +31,7 @@ test("Resources FAQ", async ({ page }) => {
 });
 
 test("Resources video Guide", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4972']").hover()
     const videoguide = await page.locator("//li[@id='menu-item-4984']")
 
@@ -43,7 +44,7 @@ test("Resources video Guide", async ({ page }) => {
 })
 
 test("Resources Tech Support", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4972']").hover()
     const documentation = await page.locator("//li[@id='menu-item-4985']")
 

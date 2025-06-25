@@ -1,8 +1,9 @@
 const { test, expect } = require('@playwright/test');
 const { EnvantoHandymanVerify } = require('./common');
+const home_url = process.env.HOME_URL;
 
 test("Pricing Handyman link verify", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4979']").click()
     const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/ul[1]/li[1]/a[1]");
     await envantohandymanLinkLocator.scrollIntoViewIfNeeded();
@@ -10,7 +11,7 @@ test("Pricing Handyman link verify", async ({ page }) => {
 })
 
 test("Pricing One Time charge", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4979']").click()
     const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[1]/a[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
@@ -27,7 +28,7 @@ test("Pricing One Time charge", async ({ page }) => {
 })
 
 test("Pricing Book Demo Call", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4979']").click()
     const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
@@ -44,7 +45,7 @@ test("Pricing Book Demo Call", async ({ page }) => {
 })
 
 test("Pricing Handyman link verify 2", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4979']").click()
     const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     await envantohandymanLinkLocator.scrollIntoViewIfNeeded();

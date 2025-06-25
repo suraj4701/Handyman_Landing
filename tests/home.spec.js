@@ -1,26 +1,27 @@
 const { test, expect } = require('@playwright/test');
 const { UserWebsiteVerify, AdminPanelVerify, TrustpilotVerify, EnvantoHandymanVerify, UserAppPlaystore, UserAppAppStore } = require('./common');
+const home_url = process.env.HOME_URL;
 
 test("Home User Website Verify", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const userwebsiteLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await UserWebsiteVerify(page, userwebsiteLocator);
 })
 
 test("Home Admin Panel Verify", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     await AdminPanelVerify(page, adminpanelLocator);
 })
 
 test("Home Trustpilot Verify", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const trustpilotLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/img[1]");
     await TrustpilotVerify(page, trustpilotLocator);
 })
 
 test("Home On-demand", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/p[1]/a[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
@@ -36,7 +37,7 @@ test("Home On-demand", async ({ page }) => {
 })
 
 test("Home Unique features", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const ondemandLocator = page.locator("//a[contains(text(),'unique features')]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
@@ -52,42 +53,42 @@ test("Home Unique features", async ({ page }) => {
 })
 
 test("Home Handyman link verify", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await envantohandymanLinkLocator.scrollIntoViewIfNeeded();
     await EnvantoHandymanVerify(page, envantohandymanLinkLocator);
 })
 
 test("Home Admin Panel Verify 2", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[8]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await AdminPanelVerify(page, adminpanelLocator);
 })
 
 test("Home User App Playstore", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[16]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await UserAppPlaystore(page, adminpanelLocator);
 })
 
 test("Home User App Appstore", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[16]/div[1]/div[4]/div[1]/div[2]/div[1]/a[1]");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await UserAppAppStore(page, adminpanelLocator);
 })
 
 test("Home Handyman link verify 2", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[17]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/ul[1]/li[1]/a[1]");
     await envantohandymanLinkLocator.scrollIntoViewIfNeeded();
     await EnvantoHandymanVerify(page, envantohandymanLinkLocator);
 })
 
 test("Home One Time charge", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[17]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[1]/a[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
@@ -103,7 +104,7 @@ test("Home One Time charge", async ({ page }) => {
 })
 
 test("Home Book Demo Call", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[17]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
@@ -119,7 +120,7 @@ test("Home Book Demo Call", async ({ page }) => {
 })
 
 test("Home Footer Provider", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const learnbtnLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]");
     await learnbtnLinkLocator.scrollIntoViewIfNeeded();
     await learnbtnLinkLocator.click();
@@ -132,7 +133,7 @@ test("Home Footer Provider", async ({ page }) => {
 });
 
 test("Home Footer User", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const learnbtnLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]");
     await learnbtnLinkLocator.scrollIntoViewIfNeeded();
     await learnbtnLinkLocator.click();
@@ -145,7 +146,7 @@ test("Home Footer User", async ({ page }) => {
 });
 
 test("Home Footer Frontend", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const learnbtnLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]");
     await learnbtnLinkLocator.scrollIntoViewIfNeeded();
     await learnbtnLinkLocator.click();
@@ -158,7 +159,7 @@ test("Home Footer Frontend", async ({ page }) => {
 });
 
 test("Home Footer Admin Panel", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const learnbtnLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]");
     await learnbtnLinkLocator.scrollIntoViewIfNeeded();
     await learnbtnLinkLocator.click();
@@ -171,14 +172,14 @@ test("Home Footer Admin Panel", async ({ page }) => {
 });
 
 test("Home Footer Buy on envato", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/a[1]");
     await envantohandymanLinkLocator.scrollIntoViewIfNeeded();
     await EnvantoHandymanVerify(page, envantohandymanLinkLocator);
 })
 
 test("Home Support", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const ondemandLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
@@ -194,7 +195,7 @@ test("Home Support", async ({ page }) => {
 })
 
 test("Home Get A Quote", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const ondemandLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
@@ -210,7 +211,7 @@ test("Home Get A Quote", async ({ page }) => {
 })
 
 test("Home License", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const ondemandLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
@@ -224,7 +225,7 @@ test("Home License", async ({ page }) => {
 })
 
 test("Home RoadMap", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const learnbtnLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]");
     await learnbtnLinkLocator.scrollIntoViewIfNeeded();
     await learnbtnLinkLocator.click();
@@ -237,7 +238,7 @@ test("Home RoadMap", async ({ page }) => {
 });
 
 test("Home Doc", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const ondemandLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
@@ -253,7 +254,7 @@ test("Home Doc", async ({ page }) => {
 })
 
 test("Home Blog", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const ondemandLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[6]/a[1]/span[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
@@ -267,7 +268,7 @@ test("Home Blog", async ({ page }) => {
 })
 
 test("Home FAQ", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     const learnbtnLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[7]/a[1]/span[1]");
     await learnbtnLinkLocator.scrollIntoViewIfNeeded();
     await learnbtnLinkLocator.click();

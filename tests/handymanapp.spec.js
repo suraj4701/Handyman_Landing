@@ -1,8 +1,9 @@
 const { test, expect } = require('@playwright/test');
 const { TrustpilotVerify, EnvantoHandymanVerify, HandymanAppPlaystore, HandymanAppAppStore } = require('./common');
+const home_url = process.env.HOME_URL;
 
 test("Handyman App Provider App Playstore", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]/ul[1]/li[1]/a[1]").click()
     const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]");
@@ -11,7 +12,7 @@ test("Handyman App Provider App Playstore", async ({ page }) => {
 })
 
 test("Handyman App Handyman link verify", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]/ul[1]/li[1]/a[1]").click()
     const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]");
@@ -20,7 +21,7 @@ test("Handyman App Handyman link verify", async ({ page }) => {
 })
 
 test("Handyman App Trustpilot Verify", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]/ul[1]/li[1]/a[1]").click()
     const trustpilotLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/a[1]/img[1]");
@@ -28,7 +29,7 @@ test("Handyman App Trustpilot Verify", async ({ page }) => {
 })
 
 test("Handyman App Try Demo", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]/ul[1]/li[1]/a[1]").click()
     const learnbtnLinkLocator = page.locator("//a[contains(text(),'Try Demo')]");
@@ -43,7 +44,7 @@ test("Handyman App Try Demo", async ({ page }) => {
 });
 
 test("Handyman App Flutter On-Demand Home Service App", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]/ul[1]/li[1]/a[1]").click()
     const ondemandLocator = page.locator("//a[contains(text(),'Flutter On-Demand Home Service App')]");
@@ -58,7 +59,7 @@ test("Handyman App Flutter On-Demand Home Service App", async ({ page }) => {
 })
 
 test("Handyman App Provider App Playstore 2", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]/ul[1]/li[1]/a[1]").click()
     const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]");
@@ -67,7 +68,7 @@ test("Handyman App Provider App Playstore 2", async ({ page }) => {
 })
 
 test("Handyman App Provider App AppStore", async ({ page }) => {
-    await page.goto("https://handyman.iqonic.design/")
+    await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]/ul[1]/li[1]/a[1]").click()
     const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]");
