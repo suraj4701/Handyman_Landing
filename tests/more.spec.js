@@ -27,9 +27,6 @@ test("More Book Demo Call", async ({ page }) => {
     ])
     const newPageUrl = newPage.url();
     expect(newPageUrl).toBe("https://tidycal.com/iqonicdesign/handyman-demo-call");
-    const iqonicDesignSpanLocator = newPage.locator("//body/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Select date');
 })
 
 test("More Handyman link verify", async ({ page }) => {

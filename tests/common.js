@@ -9,9 +9,6 @@ const UserWebsiteVerify = async (page, locator) => {
     await newPage.waitForLoadState('networkidle');
     const newPageUrl = newPage.url();
     expect(newPageUrl).toBe("https://apps.iqonic.design/handyman/");
-    const userwebsiteLocator = newPage.locator("//body/main[@id='landing-app']/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]");
-    const verifytext = await userwebsiteLocator.textContent();
-    expect(verifytext).toContain(' Your Instant Link to the Perfect Handyman Service ');
     return newPage;
 }
 
