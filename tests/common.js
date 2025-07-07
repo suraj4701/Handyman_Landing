@@ -149,4 +149,15 @@ const EnvantoAdminAppVerify = async (page, locator) => {
     return newPage;
 }
 
-module.exports = { UserWebsiteVerify, AdminPanelVerify, TrustpilotVerify, EnvantoHandymanVerify, UserAppPlaystore, UserAppAppStore, HandymanAppPlaystore, HandymanAppAppStore, AdminAppPlaystore, EnvantoAdminAppVerify, AdminAppAppStore };
+const BookcallVerify = async (page, locator) => {
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        locator.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://tidycal.com/iqonicdesign/handyman-demo-call");
+    return newPage;
+}
+
+module.exports = { UserWebsiteVerify, AdminPanelVerify, BookcallVerify, TrustpilotVerify, EnvantoHandymanVerify, UserAppPlaystore, UserAppAppStore, HandymanAppPlaystore, HandymanAppAppStore, AdminAppPlaystore, EnvantoAdminAppVerify, AdminAppAppStore };

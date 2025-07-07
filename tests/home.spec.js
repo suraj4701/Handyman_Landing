@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test');
-const { UserWebsiteVerify, AdminPanelVerify, TrustpilotVerify, EnvantoHandymanVerify, UserAppPlaystore, UserAppAppStore } = require('./common');
+import { expect, test } from '@playwright/test';
+import { AdminPanelVerify, BookcallVerify, EnvantoHandymanVerify, TrustpilotVerify, UserAppAppStore, UserAppPlaystore, UserWebsiteVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("Home User Website Verify", async ({ page }) => {
@@ -20,6 +20,12 @@ test("Home Trustpilot Verify", async ({ page }) => {
     await TrustpilotVerify(page, trustpilotLocator);
 })
 
+test("Home Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    const trustpilotLocator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(page, trustpilotLocator);
+})
+
 test("Home On-demand", async ({ page }) => {
     await page.goto(home_url);
     const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/p[1]/a[1]");
@@ -34,6 +40,13 @@ test("Home On-demand", async ({ page }) => {
     const iqonicDesignSpanLocator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]");
     const verifytext = await iqonicDesignSpanLocator.textContent();
     expect(verifytext).toContain('How Can Handyman Help ');
+})
+
+test("Home Book a quick call 2", async ({ page }) => {
+    await page.goto(home_url);
+    const trustpilotLocator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await trustpilotLocator.scrollIntoViewIfNeeded();
+    await BookcallVerify(page, trustpilotLocator);
 })
 
 test("Home Unique features", async ({ page }) => {
@@ -64,6 +77,13 @@ test("Home Admin Panel Verify 2", async ({ page }) => {
     const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[8]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await AdminPanelVerify(page, adminpanelLocator);
+})
+
+test("Home Book a quick call 3", async ({ page }) => {
+    await page.goto(home_url);
+    const trustpilotLocator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await trustpilotLocator.scrollIntoViewIfNeeded();
+    await BookcallVerify(page, trustpilotLocator);
 })
 
 test("Home User App Playstore", async ({ page }) => {
@@ -107,13 +127,14 @@ test("Home Book Demo Call", async ({ page }) => {
     await page.goto(home_url);
     const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[17]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
+    await BookcallVerify(page, ondemandLocator);
+})
 
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        ondemandLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://tidycal.com/iqonicdesign/handyman-demo-call");
+test("Home Book a quick call 4", async ({ page }) => {
+    await page.goto(home_url);
+    const trustpilotLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[23]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]");
+    await trustpilotLocator.scrollIntoViewIfNeeded();
+    await BookcallVerify(page, trustpilotLocator);
 })
 
 test("Home Footer Provider", async ({ page }) => {

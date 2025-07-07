@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test');
-const { EnvantoHandymanVerify } = require('./common');
+import { expect, test } from '@playwright/test';
+import { AdminPanelVerify, BookcallVerify, EnvantoHandymanVerify, HandymanAppAppStore, HandymanAppPlaystore, TrustpilotVerify, UserAppAppStore, UserAppPlaystore, UserWebsiteVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("More Hire Us", async ({ page }) => {
@@ -45,7 +45,141 @@ test("More Explore Handyman", async ({ page }) => {
     ])
     const newPageUrl = newPage.url();
     expect(newPageUrl).toBe("https://handyman.iqonic.design/explore-full-solution/");
-    const iqonicDesignSpanLocator = newPage.locator("//h1[contains(text(),'Take a Tour & Explore')]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Take a Tour & Explore');
+})
+
+test("More Explore Handyman Trustpilot Verify", async ({ page }) => {
+    await page.goto(home_url);
+    const bookdemocall = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]");
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        bookdemocall.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://handyman.iqonic.design/explore-full-solution/");
+    const trustpilotLocator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]");
+    await TrustpilotVerify(newPage, trustpilotLocator);
+})
+
+test("More Explore Handyman Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    const bookdemocall = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]");
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        bookdemocall.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://handyman.iqonic.design/explore-full-solution/");
+    const trustpilotLocator = newPage.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(newPage, trustpilotLocator);
+})
+
+test("More Explore Handyman User App Playstore", async ({ page }) => {
+    await page.goto(home_url);
+    const bookdemocall = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]");
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        bookdemocall.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://handyman.iqonic.design/explore-full-solution/");
+    const adminpanelLocator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]");
+    await adminpanelLocator.scrollIntoViewIfNeeded();
+    await UserAppPlaystore(newPage, adminpanelLocator);
+})
+
+test("More Explore Handyman User App Appstore", async ({ page }) => {
+    await page.goto(home_url);
+    const bookdemocall = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]");
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        bookdemocall.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://handyman.iqonic.design/explore-full-solution/");
+    const adminpanelLocator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/a[1]");
+    await adminpanelLocator.scrollIntoViewIfNeeded();
+    await UserAppAppStore(newPage, adminpanelLocator);
+})
+
+test("More Explore Handyman Provider App Playstore", async ({ page }) => {
+    await page.goto(home_url);
+    const bookdemocall = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]");
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        bookdemocall.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://handyman.iqonic.design/explore-full-solution/");
+    const adminpanelLocator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]");
+    await adminpanelLocator.scrollIntoViewIfNeeded();
+    await HandymanAppPlaystore(newPage, adminpanelLocator);
+})
+
+test("More Explore Handyman Provider App Appstore", async ({ page }) => {
+    await page.goto(home_url);
+    const bookdemocall = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]");
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        bookdemocall.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://handyman.iqonic.design/explore-full-solution/");
+    const adminpanelLocator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[1]/a[1]");
+    await adminpanelLocator.scrollIntoViewIfNeeded();
+    await HandymanAppAppStore(newPage, adminpanelLocator);
+})
+
+test("More Explore Handyman User Website Verify", async ({ page }) => {
+    await page.goto(home_url);
+    const bookdemocall = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]");
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        bookdemocall.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://handyman.iqonic.design/explore-full-solution/");
+    const userwebsiteLocator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]");
+    await userwebsiteLocator.scrollIntoViewIfNeeded();
+    await UserWebsiteVerify(newPage, userwebsiteLocator);
+})
+
+test("More Explore Handyman Admin Panel Verify", async ({ page }) => {
+    await page.goto(home_url);
+    const bookdemocall = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]");
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        bookdemocall.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://handyman.iqonic.design/explore-full-solution/");
+    const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    await AdminPanelVerify(page, adminpanelLocator);
+})
+
+test("More Explore Handyman Contact Us", async ({ page }) => {
+    await page.goto(home_url);
+    const bookdemocall = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]");
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        bookdemocall.click()
+    ])
+
+    const adminpanelLocator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[3]/div[3]/div[3]/div[1]/div[1]/a[1]");
+    await adminpanelLocator.scrollIntoViewIfNeeded();
+
+    const [newPage1] = await Promise.all([
+        newPage.context().waitForEvent('page'),
+        adminpanelLocator.click()
+    ])
+    const newPageUrl = newPage1.url();
+    expect(newPageUrl).toBe("https://iqonic.tech/contact-us/");
 })

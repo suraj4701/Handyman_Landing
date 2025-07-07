@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test');
-const { TrustpilotVerify, EnvantoHandymanVerify, UserAppPlaystore, UserAppAppStore } = require('./common');
+import { expect, test } from '@playwright/test';
+import { BookcallVerify, EnvantoHandymanVerify, TrustpilotVerify, UserAppAppStore, UserAppPlaystore } from './common';
 const home_url = process.env.HOME_URL;
 
 test("For Developer Trustpilot Verify", async ({ page }) => {
@@ -8,6 +8,14 @@ test("For Developer Trustpilot Verify", async ({ page }) => {
     await page.locator("//li[@id='menu-item-4981']//a[@class='ct-menu-link'][normalize-space()='For Developer']").click()
     const trustpilotLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]");
     await TrustpilotVerify(page, trustpilotLocator);
+})
+
+test("For Developer Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-4970']").hover()
+    await page.locator("//li[@id='menu-item-4981']//a[@class='ct-menu-link'][normalize-space()='For Developer']").click()
+    const trustpilotLocator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(page, trustpilotLocator);
 })
 
 test("For Developer Handyman Flutter home service app", async ({ page }) => {

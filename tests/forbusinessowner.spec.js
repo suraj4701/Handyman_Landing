@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test');
-const { TrustpilotVerify } = require('./common');
+import { expect, test } from '@playwright/test';
+import { BookcallVerify, TrustpilotVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("For Business Owner Trustpilot Verify", async ({ page }) => {
@@ -8,6 +8,14 @@ test("For Business Owner Trustpilot Verify", async ({ page }) => {
     await page.locator("//li[@id='menu-item-4980']//a[@class='ct-menu-link'][normalize-space()='For Business Owners']").click()
     const trustpilotLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]");
     await TrustpilotVerify(page, trustpilotLocator);
+})
+
+test("For Business Owner Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-4970']").hover()
+    await page.locator("//li[@id='menu-item-4980']//a[@class='ct-menu-link'][normalize-space()='For Business Owners']").click()
+    const trustpilotLocator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(page, trustpilotLocator);
 })
 
 test("For Business Owner Admin Panel", async ({ page }) => {
