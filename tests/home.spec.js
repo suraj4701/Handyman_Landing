@@ -297,3 +297,55 @@ test("Home FAQ", async ({ page }) => {
     const verifytext = await iqonicDesignSpanLocator.textContent();
     expect(verifytext).toContain('Frequently Asked Questions');
 });
+
+test("Home Facebook", async ({ page }) => {
+    await page.goto(home_url);
+    const LinkLocator = page.locator("(//a[@aria-label='Facebook'])[1]");
+    await LinkLocator.scrollIntoViewIfNeeded();
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        LinkLocator.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://www.facebook.com/iqonicdesign");
+})
+
+test("Home Youtube", async ({ page }) => {
+    await page.goto(home_url);
+    const LinkLocator = page.locator("(//a[@aria-label='YouTube'])[1]");
+    await LinkLocator.scrollIntoViewIfNeeded();
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        LinkLocator.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://www.youtube.com/c/IqonicDesign");
+})
+
+test("Home X-Twitter", async ({ page }) => {
+    await page.goto(home_url);
+    const LinkLocator = page.locator("(//a[@aria-label='Twitter'])[1]");
+    await LinkLocator.scrollIntoViewIfNeeded();
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        LinkLocator.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://x.com/iqonicdesign");
+})
+
+test("Home Instagram", async ({ page }) => {
+    await page.goto(home_url);
+    const LinkLocator = page.locator("(//a[@aria-label='Instagram'])[1]");
+    await LinkLocator.scrollIntoViewIfNeeded();
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        LinkLocator.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://www.instagram.com/iqonicdesign/");
+})
