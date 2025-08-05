@@ -5,7 +5,7 @@ const home_url = process.env.HOME_URL;
 test("Pricing Handyman link verify", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4979']").click()
-    const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/ul[1]/li[1]/a[1]");
+    const envantohandymanLinkLocator = page.locator("(//a[@class='ha-comparison-table__btns-item--btn elementor-repeater-item-91f587a'])[1]");
     await envantohandymanLinkLocator.scrollIntoViewIfNeeded();
     await EnvantoHandymanVerify(page, envantohandymanLinkLocator);
 })
@@ -13,7 +13,7 @@ test("Pricing Handyman link verify", async ({ page }) => {
 test("Pricing One Time charge", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4979']").click()
-    const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[1]/a[1]");
+    const ondemandLocator = page.locator("(//a[@class='ha-comparison-table__btns-item--btn elementor-repeater-item-863363a'])[1]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -30,7 +30,7 @@ test("Pricing One Time charge", async ({ page }) => {
 test("Pricing Book Demo Call", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4979']").click()
-    const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    const ondemandLocator = page.locator("(//a[@class='elementor-button elementor-button-link elementor-size-md'])[3]");
     await ondemandLocator.scrollIntoViewIfNeeded();
     await BookcallVerify(page, ondemandLocator);
 })
@@ -38,7 +38,7 @@ test("Pricing Book Demo Call", async ({ page }) => {
 test("Pricing Handyman link verify 2", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4979']").click()
-    const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    const envantohandymanLinkLocator = page.locator("(//a[@class='elementor-button elementor-button-link elementor-size-md'])[4]");
     await envantohandymanLinkLocator.scrollIntoViewIfNeeded();
     await EnvantoHandymanVerify(page, envantohandymanLinkLocator);
 })

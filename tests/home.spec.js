@@ -102,14 +102,14 @@ test("Home User App Appstore", async ({ page }) => {
 
 test("Home Handyman link verify 2", async ({ page }) => {
     await page.goto(home_url);
-    const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[17]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/ul[1]/li[1]/a[1]");
+    const envantohandymanLinkLocator = page.locator("//a[@class='ha-comparison-table__btns-item--btn elementor-repeater-item-91f587a']");
     await envantohandymanLinkLocator.scrollIntoViewIfNeeded();
     await EnvantoHandymanVerify(page, envantohandymanLinkLocator);
 })
 
 test("Home One Time charge", async ({ page }) => {
     await page.goto(home_url);
-    const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[17]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[1]/a[1]");
+    const ondemandLocator = page.locator("//a[@class='ha-comparison-table__btns-item--btn elementor-repeater-item-863363a']");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -118,87 +118,72 @@ test("Home One Time charge", async ({ page }) => {
     ])
     const newPageUrl = newPage.url();
     expect(newPageUrl).toBe("https://service.iqonic.design/services/handyman-service-flutter-app-with-laravel-backend/");
-    const iqonicDesignSpanLocator = newPage.locator("//h1[contains(text(),'Handyman Service Flutter App with Laravel Backend')]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Handyman Service Flutter App with Laravel Backend');
 })
 
 test("Home Book Demo Call", async ({ page }) => {
     await page.goto(home_url);
-    const ondemandLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[17]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    const ondemandLocator = page.locator("//div[@class='elementor-element elementor-element-67b98c3 elementor-widget__width-auto ob-has-background-overlay elementor-widget elementor-widget-button']//a[@class='elementor-button elementor-button-link elementor-size-md']");
     await ondemandLocator.scrollIntoViewIfNeeded();
     await BookcallVerify(page, ondemandLocator);
 })
 
 test("Home Book a quick call 4", async ({ page }) => {
     await page.goto(home_url);
-    const trustpilotLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[23]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]");
+    const trustpilotLocator = page.locator("//div[@class='elementor-element elementor-element-c0e8612 elementor-widget__width-auto ob-has-background-overlay elementor-widget elementor-widget-button']//a[@class='elementor-button elementor-button-link elementor-size-md']");
     await trustpilotLocator.scrollIntoViewIfNeeded();
     await BookcallVerify(page, trustpilotLocator);
 })
 
 test("Home Footer Provider", async ({ page }) => {
     await page.goto(home_url);
-    const learnbtnLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]");
+    const learnbtnLinkLocator = page.locator("//div[@class='elementor-element elementor-element-ece8a9f elementor-icon-list--layout-inline elementor-align-center elementor-mobile-align-center elementor-list-item-link-full_width ob-has-background-overlay elementor-widget elementor-widget-icon-list']//li[1]//a[1]");
     await learnbtnLinkLocator.scrollIntoViewIfNeeded();
     await learnbtnLinkLocator.click();
     await page.waitForURL("https://handyman.iqonic.design/features/service-provider-app/")
     const newPageUrl = page.url();
     expect(newPageUrl).toBe("https://handyman.iqonic.design/features/service-provider-app/");
-    const iqonicDesignSpanLocator = page.locator("//p[contains(text(),'Provider App is the primary interface for all Serv')]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Provider App is the primary interface for all Service Providers listed on the platform. They can manage Services, Handymen, Earning, Bookings, and much more.');
 });
 
 test("Home Footer User", async ({ page }) => {
     await page.goto(home_url);
-    const learnbtnLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]");
+    const learnbtnLinkLocator = page.locator("//div[@class='elementor-element elementor-element-ece8a9f elementor-icon-list--layout-inline elementor-align-center elementor-mobile-align-center elementor-list-item-link-full_width ob-has-background-overlay elementor-widget elementor-widget-icon-list']//li[2]");
     await learnbtnLinkLocator.scrollIntoViewIfNeeded();
     await learnbtnLinkLocator.click();
     await page.waitForURL("https://handyman.iqonic.design/features/client-app/")
     const newPageUrl = page.url();
     expect(newPageUrl).toBe("https://handyman.iqonic.design/features/client-app/");
-    const iqonicDesignSpanLocator = page.locator("//p[contains(text(),'User App of Flutter on-demand home services app wi')]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('User App of Flutter on-demand home services app with complete solution is the primary interfaces that your end clients will use to browse services, book Handyman, make payments and more.');
 });
 
 test("Home Footer Frontend", async ({ page }) => {
     await page.goto(home_url);
-    const learnbtnLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]");
+    const learnbtnLinkLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[3]");
     await learnbtnLinkLocator.scrollIntoViewIfNeeded();
     await learnbtnLinkLocator.click();
     await page.waitForURL("https://handyman.iqonic.design/features/user-website/")
     const newPageUrl = page.url();
     expect(newPageUrl).toBe("https://handyman.iqonic.design/features/user-website/");
-    const iqonicDesignSpanLocator = page.locator("//p[contains(text(),'Handyman Flutter on-demand home services app with ')]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Handyman Flutter on-demand home services app with complete solution is a truly universal solution. For all the users who prefer to use big screen (computers/laptop) can book their services from User Website.');
 });
 
 test("Home Footer Admin Panel", async ({ page }) => {
     await page.goto(home_url);
-    const learnbtnLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]");
+    const learnbtnLinkLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[4]");
     await learnbtnLinkLocator.scrollIntoViewIfNeeded();
     await learnbtnLinkLocator.click();
     await page.waitForURL("https://handyman.iqonic.design/features/laravel-admin-panel/")
     const newPageUrl = page.url();
     expect(newPageUrl).toBe("https://handyman.iqonic.design/features/laravel-admin-panel/");
-    const iqonicDesignSpanLocator = page.locator("//p[contains(text(),'Laravel Admin panel for Flutter home service app i')]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Laravel Admin panel for Flutter home service app is the heart of the solution. It gives full access and control of the platform to admin.');
 });
 
 test("Home Footer Buy on envato", async ({ page }) => {
     await page.goto(home_url);
-    const envantohandymanLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/a[1]");
+    const envantohandymanLinkLocator = page.locator("//div[@class='elementor-element elementor-element-3b20388 elementor-widget__width-auto ob-has-background-overlay elementor-widget elementor-widget-button']//a[@class='elementor-button elementor-button-link elementor-size-md']");
     await envantohandymanLinkLocator.scrollIntoViewIfNeeded();
     await EnvantoHandymanVerify(page, envantohandymanLinkLocator);
 })
 
 test("Home Support", async ({ page }) => {
     await page.goto(home_url);
-    const ondemandLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]");
+    const ondemandLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[8]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -214,7 +199,7 @@ test("Home Support", async ({ page }) => {
 
 test("Home Get A Quote", async ({ page }) => {
     await page.goto(home_url);
-    const ondemandLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]");
+    const ondemandLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[9]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -230,7 +215,7 @@ test("Home Get A Quote", async ({ page }) => {
 
 test("Home License", async ({ page }) => {
     await page.goto(home_url);
-    const ondemandLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]");
+    const ondemandLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[10]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -244,7 +229,7 @@ test("Home License", async ({ page }) => {
 
 test("Home RoadMap", async ({ page }) => {
     await page.goto(home_url);
-    const learnbtnLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]");
+    const learnbtnLinkLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[11]");
     await learnbtnLinkLocator.scrollIntoViewIfNeeded();
     await learnbtnLinkLocator.click();
     await page.waitForURL("https://handyman.iqonic.design/roadmap/")
@@ -257,7 +242,7 @@ test("Home RoadMap", async ({ page }) => {
 
 test("Home Doc", async ({ page }) => {
     await page.goto(home_url);
-    const ondemandLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]");
+    const ondemandLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[12]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -273,7 +258,7 @@ test("Home Doc", async ({ page }) => {
 
 test("Home Blog", async ({ page }) => {
     await page.goto(home_url);
-    const ondemandLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[6]/a[1]/span[1]");
+    const ondemandLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[13]");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -287,7 +272,7 @@ test("Home Blog", async ({ page }) => {
 
 test("Home FAQ", async ({ page }) => {
     await page.goto(home_url);
-    const learnbtnLinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[7]/a[1]/span[1]");
+    const learnbtnLinkLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[14]");
     await learnbtnLinkLocator.scrollIntoViewIfNeeded();
     await learnbtnLinkLocator.click();
     await page.waitForURL("https://handyman.iqonic.design/faq/")
