@@ -62,7 +62,7 @@ test("AdminApp Admin App Appstore", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//li[@id='menu-item-4974']").click()
-    const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]/span[1]");
+    const adminpanelLocator = page.locator("(//a[@class='elementor-button elementor-button-link elementor-size-md'])[6]");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await AdminAppAppStore(page, adminpanelLocator);
 })

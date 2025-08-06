@@ -129,7 +129,7 @@ test("Home Book Demo Call", async ({ page }) => {
 
 test("Home Book a quick call 4", async ({ page }) => {
     await page.goto(home_url);
-    const trustpilotLocator = page.locator("//div[@class='elementor-element elementor-element-c0e8612 elementor-widget__width-auto ob-has-background-overlay elementor-widget elementor-widget-button']//a[@class='elementor-button elementor-button-link elementor-size-md']");
+    const trustpilotLocator = page.locator("(//a[@class='elementor-button elementor-button-link elementor-size-md'])[10]");
     await trustpilotLocator.scrollIntoViewIfNeeded();
     await BookcallVerify(page, trustpilotLocator);
 })

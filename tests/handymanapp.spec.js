@@ -70,7 +70,7 @@ test("Handyman App Provider App Playstore 2", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]/ul[1]/li[1]/a[1]").click()
-    const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    const adminpanelLocator = page.locator("(//a[@class='elementor-button elementor-button-link elementor-size-md'])[5]");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await HandymanAppPlaystore(page, adminpanelLocator);
 })
@@ -79,7 +79,7 @@ test("Handyman App Provider App AppStore", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]/ul[1]/li[1]/a[1]").click()
-    const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/a[1]");
+    const adminpanelLocator = page.locator("(//a[@class='elementor-button elementor-button-link elementor-size-md'])[6]");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await HandymanAppAppStore(page, adminpanelLocator);
 })
