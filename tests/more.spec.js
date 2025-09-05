@@ -26,7 +26,7 @@ test("More Book Demo Call", async ({ page }) => {
         bookdemocall.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://tidycal.com/iqonicdesign/handyman-demo-call");
+    expect(newPageUrl).toBe("https://handyman.iqonic.design/handyman-demo-call/");
 })
 
 test("More Handyman link verify", async ({ page }) => {

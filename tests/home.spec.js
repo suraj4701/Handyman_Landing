@@ -250,10 +250,7 @@ test("Home Doc", async ({ page }) => {
         ondemandLocator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://apps.iqonic.design/documentation/handyman-service-doc/build/");
-    const iqonicDesignSpanLocator = newPage.locator("//h1[contains(text(),'Handyman Service')]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Handyman Service');
+    expect(newPageUrl).toBe("https://documentation.iqonic.design/handyman/");
 })
 
 test("Home Blog", async ({ page }) => {

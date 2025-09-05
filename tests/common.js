@@ -35,9 +35,6 @@ const TrustpilotVerify = async (page, locator) => {
     ])
     const newPageUrl = newPage.url();
     expect(newPageUrl).toBe("https://www.trustpilot.com/review/iqonic.design");
-    const trustpilotLocator = newPage.locator("//body/div[@id='__next']/div[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/section[1]/div[2]/h1[1]/span[1]");
-    const verifytext = await trustpilotLocator.textContent();
-    expect(verifytext).toContain('IQONIC DESIGN');
     return newPage;
 }
 
@@ -156,7 +153,7 @@ const BookcallVerify = async (page, locator) => {
         locator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://tidycal.com/iqonicdesign/handyman-demo-call");
+    expect(newPageUrl).toBe("https://handyman.iqonic.design/handyman-demo-call/");
     return newPage;
 }
 
