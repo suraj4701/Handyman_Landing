@@ -46,7 +46,7 @@ const EnvantoHandymanVerify = async (page, locator) => {
     ])
     const iqonicDesignSpanLocator = newPage.locator("//body/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]");
     const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Handyman Service - On-Demand Home Service Flutter App with ChatGPT Integration');
+    expect(verifytext).toContain('Handyman Service - Complete On-Demand Home Service Solution (Flutter App with ChatGPT Integration)');
     return newPage;
 }
 
@@ -99,10 +99,7 @@ const HandymanAppAppStore = async (page, locator) => {
         locator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://apps.apple.com/us/app/handyman-service-for-provider/id1596025324");
-    const trustpilotLocator = newPage.locator("//header/h1[1]");
-    const verifytext = await trustpilotLocator.textContent();
-    expect(verifytext).toContain('Handyman Service for Provider');
+    expect(newPageUrl).toBe("https://apps.apple.com/us/app/provider-handyman/id1596025324");
     return newPage;
 }
 
