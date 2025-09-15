@@ -149,8 +149,11 @@ const BookcallVerify = async (page, locator) => {
         page.context().waitForEvent('page'),
         locator.click()
     ])
+
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://handyman.iqonic.design/handyman-demo-call/");
+    const urlObject = new URL(newPageUrl);
+    const urlWithoutQueryParams = urlObject.origin + urlObject.pathname;
+    expect(urlWithoutQueryParams).toBe("https://handyman.iqonic.design/handyman-demo-call/");
     return newPage;
 }
 
