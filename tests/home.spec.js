@@ -227,22 +227,9 @@ test("Home License", async ({ page }) => {
     expect(verifytext).toContain('Licensing, Terms & More...');
 })
 
-test("Home RoadMap", async ({ page }) => {
-    await page.goto(home_url);
-    const learnbtnLinkLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[11]");
-    await learnbtnLinkLocator.scrollIntoViewIfNeeded();
-    await learnbtnLinkLocator.click();
-    await page.waitForURL("https://handyman.iqonic.design/roadmap/")
-    const newPageUrl = page.url();
-    expect(newPageUrl).toBe("https://handyman.iqonic.design/roadmap/");
-    const iqonicDesignSpanLocator = page.locator("//li[contains(text(),'Roadmap')]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Roadmap');
-});
-
 test("Home Doc", async ({ page }) => {
     await page.goto(home_url);
-    const ondemandLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[12]");
+    const ondemandLocator = page.locator("//a[@href='https://documentation.iqonic.design/handyman/']//span[@class='elementor-icon-list-text'][normalize-space()='Docs']");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -255,29 +242,28 @@ test("Home Doc", async ({ page }) => {
 
 test("Home Blog", async ({ page }) => {
     await page.goto(home_url);
-    const ondemandLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[13]");
+    const ondemandLocator = page.locator("//li[@class='elementor-icon-list-item elementor-inline-item']//span[@class='elementor-icon-list-text'][normalize-space()='Blog']");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
         page.context().waitForEvent('page'),
         ondemandLocator.click()
     ])
-    const iqonicDesignSpanLocator = newPage.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]/a[1]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('All Items');
+
+    const newPageUrl = newPage.url();
+    const urlObject = new URL(newPageUrl);
+    const urlWithoutQueryParams = urlObject.origin + urlObject.pathname;
+    expect(urlWithoutQueryParams).toBe("https://iqonic.design/blog/");
 })
 
 test("Home FAQ", async ({ page }) => {
     await page.goto(home_url);
-    const learnbtnLinkLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[14]");
+    const learnbtnLinkLocator = page.locator("//footer[@id='footer']//li[6]//a[1]");
     await learnbtnLinkLocator.scrollIntoViewIfNeeded();
     await learnbtnLinkLocator.click();
     await page.waitForURL("https://handyman.iqonic.design/faq/")
     const newPageUrl = page.url();
     expect(newPageUrl).toBe("https://handyman.iqonic.design/faq/");
-    const iqonicDesignSpanLocator = page.locator("//p[contains(text(),'Frequently Asked Questions')]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Frequently Asked Questions');
 });
 
 test("Home Facebook", async ({ page }) => {

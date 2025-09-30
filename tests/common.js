@@ -157,4 +157,15 @@ const BookcallVerify = async (page, locator) => {
     return newPage;
 }
 
-module.exports = { UserWebsiteVerify, AdminPanelVerify, BookcallVerify, TrustpilotVerify, EnvantoHandymanVerify, UserAppPlaystore, UserAppAppStore, HandymanAppPlaystore, HandymanAppAppStore, AdminAppPlaystore, EnvantoAdminAppVerify, AdminAppAppStore };
+const CommonLinkVerify = async (page, locator, link) => {
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        locator.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe(link);
+    return newPage;
+}
+
+module.exports = { UserWebsiteVerify, AdminPanelVerify, BookcallVerify, TrustpilotVerify, EnvantoHandymanVerify, UserAppPlaystore, UserAppAppStore, HandymanAppPlaystore, HandymanAppAppStore, AdminAppPlaystore, EnvantoAdminAppVerify, AdminAppAppStore, CommonLinkVerify };
