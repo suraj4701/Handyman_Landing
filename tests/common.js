@@ -46,7 +46,7 @@ const EnvantoHandymanVerify = async (page, locator) => {
     ])
     const iqonicDesignSpanLocator = newPage.locator("//body/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]");
     const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Handyman Service - Complete On-Demand Home Service Solution (Flutter App with ChatGPT Integration)');
+    expect(verifytext).toContain('Handyman Service - On-Demand Home Services Solution (Get 2 Apps, Customer Website & Admin Panel)');
     return newPage;
 }
 
