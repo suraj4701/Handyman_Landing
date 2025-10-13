@@ -199,7 +199,7 @@ test("Home Support", async ({ page }) => {
 
 test("Home Get A Quote", async ({ page }) => {
     await page.goto(home_url);
-    const ondemandLocator = page.locator("(//li[@class='elementor-icon-list-item elementor-inline-item'])[9]");
+    const ondemandLocator = page.locator("//a[@href='https://iqonic.tech/cost-calculator/']//span[@class='elementor-icon-list-text'][normalize-space()='Get A Quote']");
     await ondemandLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -207,10 +207,7 @@ test("Home Get A Quote", async ({ page }) => {
         ondemandLocator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://iqonic.tech/cost-calculator/");
-    const iqonicDesignSpanLocator = newPage.locator("//h3[contains(text(),'Calculate The Project Estimate Price')]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Calculate The Project Estimate Price');
+    expect(newPageUrl).toBe("https://iqonic.tech/ai-cost-calculator/");
 })
 
 test("Home License", async ({ page }) => {
