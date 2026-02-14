@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { AdminPanelVerify, BookcallVerify, EnvantoHandymanVerify, TrustpilotVerify, UserAppAppStore, UserAppPlaystore, UserWebsiteVerify } from './common';
+import { AdminPanelVerify, BookcallVerify, EnvantoHandymanVerify, TrustpilotVerify, UserAppAppStore, UserAppPlaystore, CommonLinkVerify, UserWebsiteVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("Home User Website Verify", async ({ page }) => {
@@ -207,7 +207,7 @@ test("Home Get A Quote", async ({ page }) => {
         ondemandLocator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://iqonic.tech/ai-cost-calculator/");
+    expect(newPageUrl).toBe("https://iqonic.tech/software-development-cost-calculator/");
 })
 
 test("Home License", async ({ page }) => {
@@ -261,6 +261,14 @@ test("Home FAQ", async ({ page }) => {
     await page.waitForURL("https://handyman.iqonic.design/faq/")
     const newPageUrl = page.url();
     expect(newPageUrl).toBe("https://handyman.iqonic.design/faq/");
+});
+
+test("Home Footer Iqonic Design copyright link verify", async ({ page }) => {
+    await page.goto(home_url);
+    const linkLocator = page.locator("//a[normalize-space()='Iqonic Design']");
+    await linkLocator.scrollIntoViewIfNeeded();
+    const expectedLink = "https://iqonic.design/";
+    await CommonLinkVerify(page, linkLocator, expectedLink);
 });
 
 test("Home Facebook", async ({ page }) => {

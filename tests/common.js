@@ -46,7 +46,7 @@ const EnvantoHandymanVerify = async (page, locator) => {
     ])
     const iqonicDesignSpanLocator = newPage.locator("//body/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]");
     const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Handyman Service - On-Demand Home Services Solution (Get 2 Apps, Customer Website & Admin Panel)');
+    expect(verifytext).toContain('Handyman - Home Services Booking App, Website & Admin Panel');
     return newPage;
 }
 
@@ -72,7 +72,7 @@ const UserAppAppStore = async (page, locator) => {
     ])
     const newPageUrl = newPage.url();
     expect(newPageUrl).toBe("https://apps.apple.com/us/app/handyman-service-user/id1591427211");
-    const trustpilotLocator = newPage.locator("//header/h1[1]");
+    const trustpilotLocator = newPage.locator("//h1[normalize-space()='Handyman Service User']");
     const verifytext = await trustpilotLocator.textContent();
     expect(verifytext).toContain('Handyman Service User');
     return newPage;
@@ -164,7 +164,9 @@ const CommonLinkVerify = async (page, locator, link) => {
         locator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe(link);
+    const urlObject = new URL(newPageUrl);
+    const urlWithoutQueryParams = urlObject.origin + urlObject.pathname;
+    expect(urlWithoutQueryParams).toBe(link);
     return newPage;
 }
 
