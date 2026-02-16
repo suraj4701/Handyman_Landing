@@ -30,7 +30,7 @@ test("Pricing One Time charge", async ({ page }) => {
 test("Pricing Book Demo Call", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-4979']").click()
-    const ondemandLocator = page.locator("(//a[@class='elementor-button elementor-button-link elementor-size-md'])[3]");
+    const ondemandLocator = page.locator("//div[@class='elementor-element elementor-element-67b98c3 elementor-widget__width-auto ob-has-background-overlay elementor-widget elementor-widget-button']//a[@class='elementor-button elementor-button-link elementor-size-md']");
     await ondemandLocator.scrollIntoViewIfNeeded();
     await BookcallVerify(page, ondemandLocator);
 })

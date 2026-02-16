@@ -53,7 +53,7 @@ test("AdminApp Admin App Playstore 2", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//li[@id='menu-item-4974']").click()
-    const adminappLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]");
+    const adminappLocator = page.locator("//div[@class='elementor-element elementor-element-2236db7 elementor-widget__width-auto ob-has-background-overlay elementor-widget elementor-widget-button']//a[@class='elementor-button elementor-button-link elementor-size-md']");
     await adminappLocator.scrollIntoViewIfNeeded();
     await AdminAppPlaystore(page, adminappLocator);
 })
@@ -62,7 +62,7 @@ test("AdminApp Admin App Appstore", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//li[@id='menu-item-4974']").click()
-    const adminpanelLocator = page.locator("(//a[@class='elementor-button elementor-button-link elementor-size-md'])[6]");
+    const adminpanelLocator = page.locator("//div[@class='elementor-element elementor-element-84373ea elementor-widget__width-auto ob-has-background-overlay elementor-widget elementor-widget-button']//a[@class='elementor-button elementor-button-link elementor-size-md']");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await AdminAppAppStore(page, adminpanelLocator);
 })

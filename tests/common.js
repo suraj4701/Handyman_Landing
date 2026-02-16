@@ -113,7 +113,7 @@ const AdminAppPlaystore = async (page, locator) => {
     expect(newPageUrl).toBe("https://play.google.com/store/apps/details?id=com.iqonic.handyman.admin");
     const trustpilotLocator = newPage.locator("//span[contains(text(),'Handyman Service Admin App')]");
     const verifytext = await trustpilotLocator.textContent();
-    expect(verifytext).toContain('Handyman Service Admin App');
+    expect(verifytext).toContain('Handyman Admin App');
     return newPage;
 }
 
@@ -139,7 +139,7 @@ const EnvantoAdminAppVerify = async (page, locator) => {
     ])
     const iqonicDesignSpanLocator = newPage.locator("//body/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]");
     const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Handyman Admin App [Add-on]');
+    expect(verifytext).toContain('Handyman Admin Flutter App Add-on for Business Management');
     return newPage;
 }
 
