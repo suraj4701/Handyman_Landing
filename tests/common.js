@@ -113,7 +113,7 @@ const AdminAppPlaystore = async (page, locator) => {
     expect(newPageUrl).toBe("https://play.google.com/store/apps/details?id=com.iqonic.handyman.admin");
     const trustpilotLocator = newPage.locator("//span[contains(text(),'Handyman Service Admin App')]");
     const verifytext = await trustpilotLocator.textContent();
-    expect(verifytext).toContain('Handyman Admin App');
+    expect(verifytext).toContain('Handyman Service Admin App');
     return newPage;
 }
 
@@ -125,7 +125,7 @@ const AdminAppAppStore = async (page, locator) => {
     ])
     const newPageUrl = newPage.url();
     expect(newPageUrl).toBe("https://apps.apple.com/in/app/handyman-admin-app/id6444930648");
-    const trustpilotLocator = newPage.locator("//header/h1[1]");
+    const trustpilotLocator = newPage.locator("//h1[normalize-space()='Handyman Admin App']");
     const verifytext = await trustpilotLocator.textContent();
     expect(verifytext).toContain('Handyman Admin App');
     return newPage;
