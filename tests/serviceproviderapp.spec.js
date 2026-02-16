@@ -55,7 +55,7 @@ test("Service Provider App Provider App Playstore 2", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]/ul[1]/li[2]/a[1]").click()
-    const adminpanelLocator = page.locator("(//a[@class='elementor-button elementor-button-link elementor-size-md'])[5]");
+    const adminpanelLocator = page.locator("//div[@class='elementor-element elementor-element-10948e7 elementor-widget__width-auto ob-has-background-overlay elementor-widget elementor-widget-button']//a[@class='elementor-button elementor-button-link elementor-size-md']");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await HandymanAppPlaystore(page, adminpanelLocator);
 })
@@ -64,7 +64,7 @@ test("Service Provider App Provider App AppStore", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-7174']").hover()
     await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]/ul[1]/li[2]/a[1]").click()
-    const adminpanelLocator = page.locator("(//a[@class='elementor-button elementor-button-link elementor-size-md'])[6]");
+    const adminpanelLocator = page.locator("//div[@class='elementor-element elementor-element-298e7b3 elementor-widget__width-auto ob-has-background-overlay elementor-widget elementor-widget-button']//a[@class='elementor-button elementor-button-link elementor-size-md']");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await HandymanAppAppStore(page, adminpanelLocator);
 })
