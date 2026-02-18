@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { AdminPanelVerify, BookcallVerify, CommonLinkVerify, EnvantoHandymanVerify, TrustpilotVerify } from './common';
+import { AdminPanelVerify, BookcallVerify, EnvantoHandymanVerify, TrustpilotVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("AdminPanel Admin Panel link verify", async ({ page }) => {
